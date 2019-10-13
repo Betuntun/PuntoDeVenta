@@ -1,0 +1,78 @@
+
+
+
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="../../index2.html"><b>Admin</b>LTE</a>
+      </div>
+      <!-- /.login-logo -->
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Sign in to start your session</p>
+
+          <form novalidate
+            [formGroup]="formGroup">
+            <div class="input-group mb-3">
+              <input id="emailId"
+                     type="text"
+                     required
+                     formControlName="email" class="form-control" placeholder="Email">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+              <span class="help-block" *ngIf="(formGroup.get('email').touched || formGroup.get('email').dirty) && formGroup.get('email').errors">
+                <span *ngIf="formGroup.get('email').errors.required">
+                  El campo email es requerido
+                </span>
+              </span>
+            </div>
+            <div class="input-group mb-3">
+              <input id="passwordId"
+                     type="password"
+                     required
+                     formControlName="password" class="form-control" placeholder="Password">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+              <span class="help-block" *ngIf="(formGroup.get('password').touched || formGroup.get('password').dirty) && formGroup.get('password').errors">
+                <span *ngIf="formGroup.get('password').errors.required">
+                  El campo password es requerido
+                </span>
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" id="remember">
+                  <label for="remember">
+                    Remember Me
+                  </label>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <button type="submit"  (click)="loguearse()"
+                  [disabled]="!formGroup.valid" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+
+ 
+          <!-- /.social-auth-links -->
+
+          <p class="mb-1">
+            <a href="#">I forgot my password</a>
+          </p>
+          <p class="mb-0">
+            <a [routerLink]="['/register']" class="text-center">No tiene una cuenta? Registrese Aqui</a>
+          </p>
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+  

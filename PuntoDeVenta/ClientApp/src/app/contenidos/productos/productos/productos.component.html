@@ -1,0 +1,81 @@
+
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Productos </h1><button [routerLink]='["/productos-agregar"]' class="btn btn-primary">Agregar producto</button>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Contacts</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+   
+    <!-- Default box -->
+    <div class="card card-solid">
+      <div class="card-body pb-0">
+        <div class="row d-flex align-items-stretch">
+          <p *ngIf="!(productos && this.productos.length)">No existen registros para mostrar</p>
+          <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch" *ngFor="let producto of productos">
+            <div class="card bg-light">
+              <div class="card-header text-muted border-bottom-0">
+                Sushi Empanizado
+              </div>
+              <div class="card-body pt-0" *ngIf="productos && this.productos.length">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="lead"><b>{{producto.nombre}}</b></h2>
+                    <p class="text-muted text-sm"><b>Ingredientes: </b>{{producto.ingredientes}} </p>
+                    <p class="text-muted text-sm"><b>Precio: </b>{{producto.precio}} </p>
+
+                  </div>
+                  <div class="col-5 text-center" style="height:100%; width:100%;">
+                    <img src="{{producto.rutaImagen}}" alt="{{producto.nombre}}" class="img-circle img-fluid" style=" ">
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="text-right">
+                  <button class="btn  btn-sm btn-danger">X</button>
+                  <a href="#" class="btn btn-sm btn-primary" [routerLink]='["/productos-editar/" + producto.id]'>
+                    <i class="fas fa-user-edit"></i> Editar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+          <ul class="pagination justify-content-center m-0">
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#">6</a></li>
+            <li class="page-item"><a class="page-link" href="#">7</a></li>
+            <li class="page-item"><a class="page-link" href="#">8</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+
+  </section>
+  <!-- /.content -->
+

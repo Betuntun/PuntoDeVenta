@@ -1,0 +1,86 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>{{modoEdicion ? 'Editar'  :  'Agregar'}} Producto</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">General Form</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Formulario de producto</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form role="form" class="form-horizontal" enctype="multipart/form-data" novalidate (ngSubmit)="save()" [formGroup]="formGroup" >
+            <!-- Definimos el formGroup  que se declaro en el componente de productos-form -->
+            <div class="card-body">
+              <!-- form start -->
+              <div class="form-group" [ngClass]="{'has-error': (formGroup.get('nombre').touched || formGroup.get('nombre').dirty) && !formGroup.get('nombre').valid }">
+                <label for="nombreProducto">Nombre</label>
+                <input type="text" class="form-control" id="nombreProducto" placeholder="3 quesos" required formControlName="nombre">
+                <span class="help-block" *ngIf="(formGroup.get('nombre').touched || formGroup.get('nombre').dirty) && formGroup.get('nombre').errors">
+                  <span *ngIf="formGroup.get('nombre').errors.required">
+                    El campo nombre es requerido
+                  </span>
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="precioProducto">Precio</label>
+                <input type="number" class="form-control" id="precioProducto" placeholder="$10" formControlName="precio" required>
+                <span class="help-block" *ngIf="(formGroup.get('precio').touched || formGroup.get('precio').dirty) && formGroup.get('precio').errors">
+                  <span *ngIf="formGroup.get('nombre').errors.required">
+                    El campo precio es requerido
+                  </span>
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="IngredientesProducto">Ingredientes</label>
+                <input type="text" class="form-control" id="IngredientesProducto" placeholder="Pollo, Arroz, Papa" formControlName="ingredientes" required>
+                <span class="help-block" *ngIf="(formGroup.get('ingredientes').touched || formGroup.get('ingredientes').dirty) && formGroup.get('ingredientes').errors">
+                  <span *ngIf="formGroup.get('ingredientes').errors.required">
+                    El campo ingredientes es requerido
+                  </span>
+                </span>
+              </div>
+              <input type="file" class="" id="rutaImagen" formControlName="rutaImagen"  (change)="onFileSelected($event)">
+              <!--<div class="form-group">
+    <label for="exampleInputFile">Imagen</label>
+    <div class="input-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="rutaImagen" formControlName="rutaImagen">
+        <label class="custom-file-label" for="rutaImagen"></label>
+      </div>
+      <div class="input-group-append">
+        <span class="input-group-text" id="">Subir</span>
+      </div>
+    </div>
+  </div> -->
+
+
+            </div>
+
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button class="btn btn-primary" type="submit" [disabled]="!formGroup.valid">Salvar</button>
+              <button class="btn" type="button" [routerLink]='["/productos"]'>Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

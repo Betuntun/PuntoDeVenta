@@ -1,0 +1,5 @@
+<!-- Content Wrapper. Contains page content -->
+<div [ngClass]="{'content-wrapper' : estaLogueado(), '' :  !estaLogueado()}">
+  <router-outlet></router-outlet>
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,27 @@
+<!--<body>
+  <app-nav-menu></app-nav-menu>
+  <div class="container">
+    <app-appheader></app-appheader>
+    <router-outlet></router-outlet>
+  </div>
+</body>
+    -->
+
+
+  <body [ngClass]="{'hold-transition sidebar-mini' : estaLogueado(), 'register-page' :  !estaLogueado()}" style="min-height: 586.8px;">
+    <!-- Site wrapper -->
+    <div  [ngClass]="{'wrapper' : estaLogueado(), '' :  !estaLogueado()}">
+
+
+
+      <app-appheader></app-appheader>
+      <app-menu></app-menu>
+      <app-contenido></app-contenido>
+      <app-footer> </app-footer>
+ 
+    </div>
+    <!-- ./wrapper -->
+
+  </body>
+
+ 
